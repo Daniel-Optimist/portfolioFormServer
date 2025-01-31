@@ -32,6 +32,13 @@ app.use(bodyParser.urlencoded({ extended: true }));
 //     });
 //   }
 
+//get request  ; added to get a success message when deploying it on render
+app.get("/", (req, res) => {
+  res.status(200).json({
+    message: "Success!",
+  });
+});
+
 app.post("/submit", upload.none(), (req, res) => {
   // .none() indicates no files are expected
   console.log(req.body); // Log incoming data
